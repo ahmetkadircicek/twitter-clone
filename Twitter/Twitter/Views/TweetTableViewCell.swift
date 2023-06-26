@@ -8,10 +8,10 @@
 import UIKit
 
 protocol TweetTableViewCellDelegate: AnyObject {
-    func TweetTableViewCellDidTapReply()
-    func TweetTableViewCellDidTapRetweet()
-    func TweetTableViewCellDidTapLike()
-    func TweetTableViewCellDidTapShare()
+    func tweetTableViewCellDidTapReply()
+    func tweetTableViewCellDidTapRetweet()
+    func tweetTableViewCellDidTapLike()
+    func tweetTableViewCellDidTapShare()
 }
 
 
@@ -106,16 +106,16 @@ class TweetTableViewCell: UITableViewCell {
     }
     
     @objc private func didTapReply(){
-        delegate?.TweetTableViewCellDidTapReply()
+        delegate?.tweetTableViewCellDidTapReply()
     }
     @objc private func didTapRetweet(){
-        delegate?.TweetTableViewCellDidTapRetweet()
+        delegate?.tweetTableViewCellDidTapRetweet()
     }
     @objc private func didTapLike(){
-        delegate?.TweetTableViewCellDidTapLike()
+        delegate?.tweetTableViewCellDidTapLike()
     }
     @objc private func didTapShare(){
-        delegate?.TweetTableViewCellDidTapShare()
+        delegate?.tweetTableViewCellDidTapShare()
     }
     
     private func configureButtons() {

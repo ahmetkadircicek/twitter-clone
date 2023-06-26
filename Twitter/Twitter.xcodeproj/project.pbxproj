@@ -35,6 +35,12 @@
 		E3718C3E2A45C84E00890760 /* AuthenticationViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3718C3D2A45C84E00890760 /* AuthenticationViewViewModel.swift */; };
 		E3718C412A45CCAF00890760 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3718C402A45CCAE00890760 /* AuthManager.swift */; };
 		E3718C432A48485200890760 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3718C422A48485200890760 /* LoginViewController.swift */; };
+		E3718C462A48591400890760 /* TwitterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3718C452A48591400890760 /* TwitterUser.swift */; };
+		E3718C482A48599700890760 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3718C472A48599700890760 /* DatabaseManager.swift */; };
+		E3718C4A2A485FAD00890760 /* HomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3718C492A485FAD00890760 /* HomeViewViewModel.swift */; };
+		E3718C4C2A4864D800890760 /* ProfileDataFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3718C4B2A4864D800890760 /* ProfileDataFormViewController.swift */; };
+		E3718C4E2A4865C500890760 /* ProfileDataFormViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3718C4D2A4865C500890760 /* ProfileDataFormViewViewModel.swift */; };
+		E3718C502A48CA8800890760 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3718C4F2A48CA8800890760 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +65,12 @@
 		E3718C3D2A45C84E00890760 /* AuthenticationViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewViewModel.swift; sourceTree = "<group>"; };
 		E3718C402A45CCAE00890760 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		E3718C422A48485200890760 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E3718C452A48591400890760 /* TwitterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterUser.swift; sourceTree = "<group>"; };
+		E3718C472A48599700890760 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		E3718C492A485FAD00890760 /* HomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewViewModel.swift; sourceTree = "<group>"; };
+		E3718C4B2A4864D800890760 /* ProfileDataFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataFormViewController.swift; sourceTree = "<group>"; };
+		E3718C4D2A4865C500890760 /* ProfileDataFormViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataFormViewViewModel.swift; sourceTree = "<group>"; };
+		E3718C4F2A48CA8800890760 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +112,7 @@
 		E3718BF72A44556100890760 /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				E3718C442A4858ED00890760 /* Models */,
 				E3718C3F2A45CC9700890760 /* Networking */,
 				E3718C3C2A45C83300890760 /* ViewModels */,
 				E3718C1A2A4461A500890760 /* Views */,
@@ -150,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				E3718C1E2A447FC700890760 /* ProfileViewController.swift */,
+				E3718C4B2A4864D800890760 /* ProfileDataFormViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -168,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				E3718C3D2A45C84E00890760 /* AuthenticationViewViewModel.swift */,
+				E3718C492A485FAD00890760 /* HomeViewViewModel.swift */,
+				E3718C4D2A4865C500890760 /* ProfileDataFormViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -176,8 +192,18 @@
 			isa = PBXGroup;
 			children = (
 				E3718C402A45CCAE00890760 /* AuthManager.swift */,
+				E3718C472A48599700890760 /* DatabaseManager.swift */,
+				E3718C4F2A48CA8800890760 /* StorageManager.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		E3718C442A4858ED00890760 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E3718C452A48591400890760 /* TwitterUser.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,16 +297,22 @@
 				E3718C1C2A4461D300890760 /* TweetTableViewCell.swift in Sources */,
 				E3718C412A45CCAF00890760 /* AuthManager.swift in Sources */,
 				E3718BFD2A44556100890760 /* MainTabBarViewController.swift in Sources */,
+				E3718C4E2A4865C500890760 /* ProfileDataFormViewViewModel.swift in Sources */,
 				E3718C192A4456F000890760 /* DirectMessagesViewController.swift in Sources */,
 				E3718C3E2A45C84E00890760 /* AuthenticationViewViewModel.swift in Sources */,
+				E3718C482A48599700890760 /* DatabaseManager.swift in Sources */,
 				E3718BF92A44556100890760 /* AppDelegate.swift in Sources */,
+				E3718C462A48591400890760 /* TwitterUser.swift in Sources */,
 				E3718C392A45143700890760 /* OnboardingViewController.swift in Sources */,
+				E3718C502A48CA8800890760 /* StorageManager.swift in Sources */,
 				E3718BFB2A44556100890760 /* SceneDelegate.swift in Sources */,
 				E3718C172A4456E400890760 /* NotificationsViewController.swift in Sources */,
 				E3718C432A48485200890760 /* LoginViewController.swift in Sources */,
 				E3718C3B2A451A7A00890760 /* RegisterViewController.swift in Sources */,
+				E3718C4C2A4864D800890760 /* ProfileDataFormViewController.swift in Sources */,
 				E3718C032A44556100890760 /* Twitter.xcdatamodeld in Sources */,
 				E3718C212A44A7D400890760 /* ProfileTableViewHeader.swift in Sources */,
+				E3718C4A2A485FAD00890760 /* HomeViewViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
