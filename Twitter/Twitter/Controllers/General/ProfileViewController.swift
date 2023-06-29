@@ -6,10 +6,15 @@
 //
 
 import UIKit
+import Combine
+import SDWebImage
 
 class ProfileViewController: UIViewController {
     
     private var isStatusBarHidden: Bool = true
+    private var viewModel = ProfileViewViewModel()
+    
+    private var subscriptions: Set<AnyCancellable> = []
     
     private let statusBar: UIView = {
         let view = UIView()
@@ -18,6 +23,8 @@ class ProfileViewController: UIViewController {
         view.layer.opacity = 0
         return view
     }()
+    
+    private lazy var headerView = ProfileTableViewHeader(frame: CGRect(x: 0, y: 0, width: profileTableView.frame.width, height: 400))
     
     private let profileTableView: UITableView = {
         let tableView = UITableView()
@@ -30,7 +37,6 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         navigationItem.title = "Profile"
-        let headerView = ProfileTableViewHeader(frame: CGRect(x: 0, y: 0, width: profileTableView.frame.width, height: 400))
         
         view.addSubview(profileTableView)
         view.addSubview(statusBar)
@@ -39,11 +45,30 @@ class ProfileViewController: UIViewController {
         profileTableView.tableHeaderView = headerView
         profileTableView.contentInsetAdjustmentBehavior = .never
         navigationController?.navigationBar.isHidden = true
-        
+        bindViews()
         
         configureConstraints()
         
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.retreiveUser()
+    }
+    
+    private func bindViews() {
+        viewModel.$user.sink {[weak self] user in
+            guard let user = user else { return }
+            self?.headerView.profileDisplayNameLabel.text = user.displayName
+            self?.headerView.profileUsernameLabel.text = "@\(user.username.lowercased())"
+            self?.headerView.profileFollowingCountLabel.text = "\(user.followingCount)"
+            self?.headerView.profileFollowersCountLabel.text = "\(user.followersCount)"
+            self?.headerView.profileUserBioLabel.text = user.bio
+            self?.headerView.profileAvatarImageView.sd_setImage(with: URL(string: user.avatarPath))
+            self?.headerView.profileJoinDateLabel.text = "Joined \(self?.viewModel.getFormattedDate(with: user.createdOn) ?? "Joined Dec 2009")"
+        }
+        .store(in: &subscriptions)
     }
     
     private func configureConstraints(){
@@ -77,9 +102,11 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
             
         }
-        
+            
+        cell.selectionStyle = .none
         return cell
     }
+    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let yPosition = scrollView.contentOffset.y
